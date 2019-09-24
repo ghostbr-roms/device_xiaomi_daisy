@@ -14,15 +14,15 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/xiaomi/sakura/sakura-vendor.mk)
+$(call inherit-product, vendor/xiaomi/daisy/daisy-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
-# Inherit from msm8953-common
-$(call inherit-product, device/xiaomi/msm8953-common/msm8953.mk)
+# Inherit from msm8953-daisy
+$(call inherit-product, device/xiaomi/msm8953-daisy/msm8953.mk)
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -35,14 +35,14 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-service
 
 # Properties
--include device/xiaomi/sakura/prop.mk
+-include device/xiaomi/daisy/prop.mk
 
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.goodix.sh \
     init.recovery.qcom.rc \
     init.recovery.qcom.usb.rc \
-    init.sakura.rc
+    init.daisy.rc
 
 # Sensors
 PRODUCT_COPY_FILES += \

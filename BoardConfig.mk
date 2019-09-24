@@ -13,13 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit from common msm8953-common
--include device/xiaomi/msm8953-common/BoardConfigCommon.mk
+# Inherit from common msm8953-daisy
+-include device/xiaomi/msm8953-daisy/BoardConfigCommon.mk
 
-DEVICE_PATH := device/xiaomi/sakura
+DEVICE_PATH := device/xiaomi/daisy
 
 # Filesystem
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
+TARGET_USES_MKE2FS := true
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
@@ -27,21 +30,24 @@ TARGET_COPY_OUT_VENDOR := vendor
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Kernel
-TARGET_KERNEL_CONFIG := sakura_defconfig
-TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_CONFIG := daisy_defconfig
+TARGET_KERNEL_VERSION := 3.18
 
 # Partitions
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 25765043200 # 25765059584 - 16384
-BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 25765043200 # 25765059584 - 16384
-BOARD_VENDORIMAGE_PARTITION_SIZE := 872415232
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_CACHEIMAGE_PARTITION_SIZE := 16777216
+BOARD_VENDORIMAGE_PARTITION_SIZE := 805306368
+BOARD_HAS_REMOVABLE_STORAGE := true
 
 # Power
-TARGET_TAP_TO_WAKE_NODE := "/proc/tp_wakeup_gesture"
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/wakeup_gesture"
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
+
+# Recovery
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_RECOVERY := true
 
 # Security Patch Level
 VENDOR_SECURITY_PATCH := 2019-05-05
@@ -50,4 +56,4 @@ VENDOR_SECURITY_PATCH := 2019-05-05
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Inherit from the proprietary version
--include vendor/xiaomi/sakura/BoardConfigVendor.mk
+-include vendor/xiaomi/daisy/BoardConfigVendor.mk
