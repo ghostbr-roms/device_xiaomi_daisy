@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit from common msm8953-daisy
--include device/xiaomi/msm8953-daisy/BoardConfigCommon.mk
+# Inherit from common Msm8953
+-include device/xiaomi/msm8953/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/daisy
 

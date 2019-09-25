@@ -21,8 +21,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
-# Inherit from msm8953-daisy
-$(call inherit-product, device/xiaomi/msm8953-daisy/msm8953.mk)
+# Inherit from Msm8953
+$(call inherit-product, device/xiaomi/msm8953/msm8953.mk)
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
