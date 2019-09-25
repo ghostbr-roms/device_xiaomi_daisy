@@ -30,8 +30,10 @@ TARGET_COPY_OUT_VENDOR := vendor
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Kernel
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 TARGET_KERNEL_CONFIG := daisy_defconfig
 TARGET_KERNEL_VERSION := 3.18
+
 
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
